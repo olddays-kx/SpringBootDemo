@@ -4,6 +4,12 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.1.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
 	<groupId>com.kuang</groupId>
 	<artifactId>springBootDemo</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
@@ -11,10 +17,68 @@
 
 	<modules>
 		<module>base</module>
+		<module>jwt</module>
 	</modules>
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<springboot.parent.version>2.2.1.RELEASE</springboot.parent.version>
+		<jwt.version>3.8.3</jwt.version>
+		<mysql.driver.version>8.0.17</mysql.driver.version>
 	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.kuang</groupId>
+				<artifactId>base</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.kuang</groupId>
+				<artifactId>jwt</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+
+			<!--<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter</artifactId>
+				<version>${springboot.parent.version}</version>
+			</dependency>
+			&lt;!&ndash; spring web &ndash;&gt;
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${springboot.parent.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-devtools</artifactId>
+				<optional>true</optional>
+			</dependency>
+			&lt;!&ndash; jpa &ndash;&gt;
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+				<version>${springboot.parent.version}</version>
+			</dependency>-->
+
+			<!-- Mysql -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.driver.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<!-- JWT -->
+			<dependency>
+				<groupId>com.auth0</groupId>
+				<artifactId>java-jwt</artifactId>
+				<version>${jwt.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<build>
 		<plugins>
 			<plugin>
